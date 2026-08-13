@@ -1,18 +1,31 @@
+import { useState } from "react";
 import styles from "./Controls.module.css";
 
-const Controls = () => {
+const Controls = ({ onSend }) => {
+  const [content, setContent] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (content.length > 0) {
+      onSend(content);
+      setContent("");
+    }
+  };
+
   return (
-    <div className={styles.Controls}>
+    <form onSubmit={handleSubmit} className={styles.Controls}>
       <div className={styles.TextAreaContainer}>
         <textarea
           placeholder="Message AI Chatbot"
           className={styles.TextArea}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <button className={styles.Button}>
+      <button className={styles.Button} type="submit">
         <SendIcon />
       </button>
-    </div>
+    </form>
   );
 };
 
