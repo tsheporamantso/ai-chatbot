@@ -1,9 +1,14 @@
+import styles from "./App.module.css";
+
 function App() {
   return (
-    <header>
-      <img src="/chat-bot.png" />
-      <h1>AI Chatbot</h1>
-    </header>
+    <div className={styles.App}>
+      <header className={styles.Header}>
+        <img src="/chat-bot.png" className={styles.Logo} />
+        <h2 className={styles.Title}>AI Chatbot</h2>
+      </header>
+      <div className={styles.ChatContainer}></div>
+    </div>
   );
 }
 
