@@ -4,7 +4,11 @@ import { useState } from "react";
 import Controls from "./components/Controls/Controls";
 
 function App() {
-  const [messages, setMessages] = useState(MESSAGES);
+  const [messages, setMessages] = useState([]);
+
+  const handleContentSend = (content) => {
+    setMessages((prevMessage) => [...prevMessage, { content, role: "user" }]);
+  };
   return (
     <div className={styles.App}>
       <header className={styles.Header}>
@@ -14,42 +18,9 @@ function App() {
       <div className={styles.ChatContainer}>
         <Chat messages={messages} />
       </div>
-      <Controls />
+      <Controls onSend={handleContentSend} />
     </div>
   );
 }
-
-const MESSAGES = [
-  {
-    role: "user",
-    content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit error harum atque deleniti, accusantium autem blanditiis eos aliquam eveniet natus dolores cumque possimus quasi aut voluptas! Quam similique ad odio?",
-  },
-  {
-    role: "assistant",
-    content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit error harum atque deleniti, accusantium autem blanditiis eos aliquam eveniet natus dolores cumque possimus quasi aut voluptas! Quam similique ad odio?",
-  },
-  {
-    role: "user",
-    content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit error harum atque deleniti, accusantium autem blanditiis eos aliquam eveniet natus dolores cumque possimus quasi aut voluptas! Quam similique ad odio?",
-  },
-  {
-    role: "assistant",
-    content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit error harum atque deleniti, accusantium autem blanditiis eos aliquam eveniet natus dolores cumque possimus quasi aut voluptas! Quam similique ad odio?",
-  },
-  {
-    role: "user",
-    content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit error harum atque deleniti, accusantium autem blanditiis eos aliquam eveniet natus dolores cumque possimus quasi aut voluptas! Quam similique ad odio?",
-  },
-  {
-    role: "assistant",
-    content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit error harum atque deleniti, accusantium autem blanditiis eos aliquam eveniet natus dolores cumque possimus quasi aut voluptas! Quam similique ad odio?",
-  },
-];
 
 export default App;
