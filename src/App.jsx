@@ -1,8 +1,9 @@
 function App() {
   return (
-    <>
-      <h1>chatbot</h1>
-    </>
+    <header>
+      <img src="/chat-bot.png" />
+      <h1>AI Chatbot</h1>
+    </header>
   );
 }
 
