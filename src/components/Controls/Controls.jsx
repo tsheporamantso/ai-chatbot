@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Controls.module.css";
 import TextareaAutosize from "react-textarea-autosize";
 
 const Controls = ({ onSend, isDisabled = false }) => {
+  const textAreaFocus = useRef();
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
@@ -13,10 +14,15 @@ const Controls = ({ onSend, isDisabled = false }) => {
     }
   };
 
+  useEffect(() => {
+    textAreaFocus.current.focus();
+  }, [isDisabled]);
+
   return (
     <form onSubmit={handleSubmit} className={styles.Controls}>
       <div className={styles.TextAreaContainer}>
         <TextareaAutosize
+          ref={textAreaFocus}
           placeholder="Message AI Chatbot"
           className={styles.TextArea}
           value={content}
