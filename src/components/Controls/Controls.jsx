@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Controls.module.css";
 import TextareaAutosize from "react-textarea-autosize";
 
-const Controls = ({ onSend }) => {
+const Controls = ({ onSend, isDisabled = false }) => {
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
@@ -21,11 +21,12 @@ const Controls = ({ onSend }) => {
           className={styles.TextArea}
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          disabled={isDisabled}
           minRows={1}
           maxRows={4}
         />
       </div>
-      <button className={styles.Button} type="submit">
+      <button className={styles.Button} type="submit" disabled={isDisabled}>
         <SendIcon />
       </button>
     </form>
