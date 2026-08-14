@@ -3,7 +3,7 @@ import styles from "./Controls.module.css";
 import TextareaAutosize from "react-textarea-autosize";
 
 const Controls = ({ onSend, isDisabled = false }) => {
-  const textAreaFocus = useRef();
+  const textAreaFocus = useRef(null);
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
