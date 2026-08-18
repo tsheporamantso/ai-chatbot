@@ -2,8 +2,9 @@ import styles from "./App.module.css";
 import { Chat } from "./components/Chat/Chat";
 import { useState } from "react";
 import Controls from "./components/Controls/Controls";
-import { Assistant } from "./components/assistants/googleai";
+// import { Assistant } from "./components/assistants/googleai";
 // import { Assistant } from "./components/Assistants/openai";
+import { Assistant } from "./components/Assistants/deepseekai";
 import Loaders from "./components/Loader/Loaders";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const responseText = await assistant.chat(content);
+      const responseText = await assistant.chat(content, messages);
       addMessage({ content: responseText, role: "assistant" });
     } catch (error) {
       console.error(error);
