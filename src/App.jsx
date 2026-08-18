@@ -2,9 +2,9 @@ import styles from "./App.module.css";
 import { Chat } from "./components/Chat/Chat";
 import { useState } from "react";
 import Controls from "./components/Controls/Controls";
-// import { Assistant } from "./components/assistants/googleai";
+import { Assistant } from "./components/assistants/googleai";
 // import { Assistant } from "./components/Assistants/openai";
-import { Assistant } from "./components/Assistants/deepseekai";
+// import { Assistant } from "./components/Assistants/deepseekai";
 import Loaders from "./components/Loader/Loaders";
 
 function App() {
@@ -21,12 +21,14 @@ function App() {
     setIsLoading(true);
 
     try {
-      const responseText = await assistant.chat(content, messages);
+      const responseText = await assistant.chat(content);
       addMessage({ content: responseText, role: "assistant" });
     } catch (error) {
       console.error(error);
       addMessage({
-        content: "Sorry I couldn't process your request. Please try again!",
+        content:
+          error?.message ??
+          "Sorry I couldn't process your request. Please try again!",
         role: "system",
       });
     } finally {
