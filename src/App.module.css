@@ -53,6 +53,25 @@
   overflow-y: auto;
 }
 
+.OpencodeButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #4a90d9;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.OpencodeButton:hover {
+  background: #357abd;
+}
+
+.OpencodeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media screen and (max-width: 768px) {
   .Header {
     padding-left: 0;
