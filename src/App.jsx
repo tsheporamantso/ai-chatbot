@@ -38,7 +38,7 @@ function App() {
       {isLoading && <Loaders />}
       <header className={styles.Header}>
         <img src="/chat-bot.png" className={styles.Logo} />
-        <h2 className={styles.Title}>AI Chatbot</h2>
+        <h2 className={styles.Title}>AI Chatbot.</h2>
       </header>
       <div className={styles.ChatContainer}>
         <Chat messages={messages} />
