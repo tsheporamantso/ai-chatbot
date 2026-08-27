@@ -1,0 +1,79 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  height: 100vh;
+  padding: 16px;
+}
+
+.Header {
+  padding-left: calc(260px + 16px);
+  text-align: center;
+}
+
+.Content {
+  display: flex;
+  flex-grow: 1;
+  gap: 16px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.Logo {
+  width: 64px;
+  height: 64px;
+}
+
+.Title {
+  margin: 0;
+}
+
+.Configuration {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.ChatContainer {
+  flex-grow: 1;
+  width: 100%;
+  background: light-dark(#ffffff, #212121);
+  border-radius: 16px;
+  overflow-y: auto;
+}
+
+.OpencodeButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #4a90d9;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.OpencodeButton:hover {
+  background: #357abd;
+}
+
+.OpencodeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+  .Header {
+    padding-left: 0;
+  }
+}
